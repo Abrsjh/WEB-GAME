@@ -13,13 +13,6 @@ export default defineConfig({
           chess: ['chess.js', 'zustand']
         }
       }
-    },
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true
-      }
     }
   },
   base: './',
