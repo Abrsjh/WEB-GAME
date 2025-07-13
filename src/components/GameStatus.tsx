@@ -5,8 +5,7 @@ export const GameStatus = memo(function GameStatus() {
   const { 
     gameStatus, 
     currentPlayer, 
-    moveHistory, 
-    game 
+    moveHistory
   } = useGameStore()
 
   const gameInfo = useMemo(() => {

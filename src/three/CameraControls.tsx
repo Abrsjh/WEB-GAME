@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { OrbitControls as OrbitControlsImpl } from 'three/examples/jsm/controls/OrbitControls'
+import { OrbitControls as OrbitControlsImpl } from 'three/addons/controls/OrbitControls.js'
 import { OrbitControls } from '@react-three/drei'
 import { Vector3 } from 'three'
 

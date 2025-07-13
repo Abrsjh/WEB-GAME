@@ -1,7 +1,6 @@
-import { useRef, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSpring, animated, config } from '@react-spring/three'
-import { Vector3 } from 'three'
-import { Square, PieceSymbol, Color } from 'chess.js'
+import type { Square, PieceSymbol, Color } from 'chess.js'
 import { squareTo3DPosition } from '../../utils/chessHelpers'
 import { ChessPiece } from '../pieces/ChessPiece'
 
@@ -42,9 +41,9 @@ export function CaptureEffect({ capturedPiece, onComplete }: CaptureEffectProps)
 
   return (
     <animated.group
-      position={springs.position}
-      rotation={springs.rotation}
-      scale={springs.scale}
+      position={springs.position as any}
+      rotation={springs.rotation as any}
+      scale={springs.scale as any}
     >
       <ChessPiece
         type={capturedPiece.type}
@@ -106,7 +105,7 @@ function FadeInEffect({ delay = 0, children }: FadeInEffectProps) {
   }))
 
   return (
-    <animated.group scale={springs.scale}>
+    <animated.group scale={springs.scale as any}>
       {children}
     </animated.group>
   )
@@ -149,11 +148,11 @@ export function ExplosionEffect({ position, onComplete }: ExplosionEffectProps) 
 
   return (
     <group>
-      {springs.particles.map((spring, index) => (
+      {particles.map((particle, index) => (
         <animated.mesh
           key={index}
-          position={spring.position}
-          scale={spring.scale}
+          position={(springs.particles as any)[index]?.position || [position.x, position.y, position.z]}
+          scale={(springs.particles as any)[index]?.scale || [0.1, 0.1, 0.1]}
         >
           <sphereGeometry args={[0.02, 4, 4]} />
           <meshBasicMaterial color="#ff6b6b" transparent />

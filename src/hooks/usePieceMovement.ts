@@ -1,6 +1,6 @@
 import { useState, useCallback, useRef } from 'react'
 import { Vector3 } from 'three'
-import { Square } from 'chess.js'
+import type { Square } from 'chess.js'
 import { useGameStore } from '../store/gameStore'
 import { position3DToSquare, squareTo3DPosition } from '../utils/chessHelpers'
 
@@ -21,7 +21,7 @@ export interface PieceMovementState extends DragState {
 }
 
 export function usePieceMovement() {
-  const { game, selectedSquare, possibleMoves, makeMove, selectSquare, currentPlayer } = useGameStore()
+  const { game, possibleMoves, makeMove, selectSquare, currentPlayer } = useGameStore()
   
   const [dragState, setDragState] = useState<DragState>({
     isDragging: false,

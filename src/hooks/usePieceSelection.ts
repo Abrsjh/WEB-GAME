@@ -1,5 +1,5 @@
-import { useState, useCallback } from 'react'
-import { Square } from 'chess.js'
+import { useCallback } from 'react'
+import type { Square } from 'chess.js'
 import { useGameStore } from '../store/gameStore'
 
 export interface PieceSelectionState {

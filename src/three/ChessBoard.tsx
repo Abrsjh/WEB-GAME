@@ -1,7 +1,7 @@
 import { useRef, useState, memo, useMemo } from 'react'
 import { Mesh } from 'three'
 import { getAllSquares, isLightSquare, squareTo3DPosition } from '../utils/chessHelpers'
-import { Square } from 'chess.js'
+import type { Square } from 'chess.js'
 import { BoardAnimation } from './animations'
 
 interface ChessBoardProps {

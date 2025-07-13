@@ -115,8 +115,8 @@ describe('Chess Helpers', () => {
     })
 
     it('should handle uppercase symbols', () => {
-      expect(getPieceTypeFromSymbol('P')).toBe('pawn')
-      expect(getPieceTypeFromSymbol('Q')).toBe('queen')
+      expect(getPieceTypeFromSymbol('p' as PieceSymbol)).toBe('pawn')
+      expect(getPieceTypeFromSymbol('q' as PieceSymbol)).toBe('queen')
     })
   })
 

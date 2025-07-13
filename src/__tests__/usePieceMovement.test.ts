@@ -111,9 +111,9 @@ describe('usePieceMovement', () => {
       result.current.updateDrag(new Vector3(0, 0, 1))
     })
     
-    let moveExecuted = false
+    let moveExecuted: boolean
     act(() => {
-      moveExecuted = result.current.endDrag()
+      moveExecuted = result.current.endDrag() || false
     })
     
     expect(result.current.isDragging).toBe(false)
@@ -133,9 +133,9 @@ describe('usePieceMovement', () => {
       result.current.updateDrag(new Vector3(3, 0, 3))
     })
     
-    let moveExecuted = false
+    let moveExecuted: boolean
     act(() => {
-      moveExecuted = result.current.endDrag()
+      moveExecuted = result.current.endDrag() || false
     })
     
     expect(result.current.isDragging).toBe(false)

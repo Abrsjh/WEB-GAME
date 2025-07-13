@@ -1,5 +1,4 @@
-import { useRef } from 'react'
-import { Mesh } from 'three'
+import { memo } from 'react'
 
 export function PawnGeometry() {
   return (

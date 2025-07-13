@@ -1,4 +1,4 @@
-import { Square, PieceSymbol, Color } from 'chess.js'
+import type { Square, PieceSymbol, Color } from 'chess.js'
 
 export interface Position3D {
   x: number

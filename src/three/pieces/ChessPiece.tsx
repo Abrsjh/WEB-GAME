@@ -1,7 +1,7 @@
 import { useRef, useState, memo } from 'react'
 import { Group } from 'three'
-import { Square, PieceSymbol, Color } from 'chess.js'
-import { squareTo3DPosition, getPieceTypeFromSymbol, getColorFromPiece } from '../../utils/chessHelpers'
+import type { Square, PieceSymbol, Color } from 'chess.js'
+import { getPieceTypeFromSymbol, getColorFromPiece } from '../../utils/chessHelpers'
 import { PieceAnimation, HoverAnimation } from '../animations'
 import { 
   PawnGeometry, 
@@ -91,8 +91,6 @@ export const ChessPiece = memo(function ChessPiece({
         >
           <meshStandardMaterial 
             color={materialColor}
-            castShadow
-            receiveShadow
             roughness={0.3}
             metalness={0.1}
           />

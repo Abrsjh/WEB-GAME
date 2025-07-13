@@ -1,6 +1,6 @@
-import { useRef, useMemo } from 'react'
+import { useMemo } from 'react'
 import { useSpring, animated, config } from '@react-spring/three'
-import { Square } from 'chess.js'
+import type { Square } from 'chess.js'
 import { squareTo3DPosition } from '../../utils/chessHelpers'
 
 interface BoardHighlightProps {
@@ -81,7 +81,7 @@ export function BoardHighlight({ square, type, intensity = 1 }: BoardHighlightPr
   return (
     <animated.mesh
       position={[position.x, position.y + highlightConfig.height, position.z]}
-      scale={springs.scale}
+      scale={springs.scale as any}
     >
       <cylinderGeometry args={[0.45, 0.45, highlightConfig.height, 16]} />
       <animated.meshStandardMaterial
@@ -118,8 +118,8 @@ export function PossibleMoveIndicator({ square, isCapture = false }: PossibleMov
     return (
       <animated.group
         position={[position.x, position.y + 0.1, position.z]}
-        scale={springs.scale}
-        rotation={springs.rotation}
+        scale={springs.scale as any}
+        rotation={springs.rotation as any}
       >
         <mesh>
           <torusGeometry args={[0.35, 0.05, 8, 16]} />
@@ -138,7 +138,7 @@ export function PossibleMoveIndicator({ square, isCapture = false }: PossibleMov
   return (
     <animated.mesh
       position={[position.x, position.y + 0.02, position.z]}
-      scale={springs.scale}
+      scale={springs.scale as any}
     >
       <cylinderGeometry args={[0.15, 0.15, 0.02, 8]} />
       <meshStandardMaterial
@@ -219,7 +219,7 @@ export function CheckIndicator({ kingSquare }: CheckIndicatorProps) {
   return (
     <animated.group
       position={[position.x, position.y + 0.05, position.z]}
-      scale={springs.scale}
+      scale={springs.scale as any}
     >
       <mesh>
         <cylinderGeometry args={[0.5, 0.5, 0.02, 16]} />

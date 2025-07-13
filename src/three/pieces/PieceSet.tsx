@@ -1,5 +1,5 @@
 import { useMemo } from 'react'
-import { Square, Piece } from 'chess.js'
+import type { Square, Piece } from 'chess.js'
 import { ChessPiece } from './ChessPiece'
 import { useGameStore } from '../../store/gameStore'
 import { getAllSquares } from '../../utils/chessHelpers'

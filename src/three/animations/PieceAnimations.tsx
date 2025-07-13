@@ -1,7 +1,6 @@
-import { useRef, useEffect } from 'react'
+import { useEffect } from 'react'
 import { useSpring, animated, config } from '@react-spring/three'
-import { Vector3 } from 'three'
-import { Square } from 'chess.js'
+import type { Square } from 'chess.js'
 import { squareTo3DPosition } from '../../utils/chessHelpers'
 
 interface PieceAnimationProps {
@@ -47,9 +46,9 @@ export function PieceAnimation({
 
   return (
     <animated.group
-      position={springs.position}
-      rotation={springs.rotation}
-      scale={springs.scale}
+      position={springs.position as any}
+      rotation={springs.rotation as any}
+      scale={springs.scale as any}
     >
       {children}
     </animated.group>
@@ -98,12 +97,12 @@ export function BoardAnimation({
     scale: isSelected ? [1.02, 1.2, 1.02] : isHighlighted ? [1.01, 1.1, 1.01] : [1, 1, 1],
     position: isSelected ? [0, 0.01, 0] : isHighlighted ? [0, 0.005, 0] : [0, 0, 0],
     config: config.gentle
-  }))
+  }), [isHighlighted, isSelected])
 
   return (
     <animated.group
-      scale={springs.scale}
-      position={springs.position}
+      scale={springs.scale as any}
+      position={springs.position as any}
     >
       {children}
     </animated.group>
@@ -125,11 +124,11 @@ export function FadeAnimation({
     opacity: isVisible ? 1 : 0,
     scale: isVisible ? [1, 1, 1] : [0.8, 0.8, 0.8],
     config: { ...config.gentle, duration: duration * 1000 }
-  }))
+  }), [isVisible, duration])
 
   return (
     <animated.group
-      scale={springs.scale}
+      scale={springs.scale as any}
     >
       {children}
     </animated.group>

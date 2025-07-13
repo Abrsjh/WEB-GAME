@@ -1,5 +1,6 @@
 import { create } from 'zustand'
-import { Chess, Square, Move } from 'chess.js'
+import { Chess } from 'chess.js'
+import type { Square, Move } from 'chess.js'
 
 export interface GameState {
   game: Chess
