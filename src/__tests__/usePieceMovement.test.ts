@@ -111,13 +111,14 @@ describe('usePieceMovement', () => {
       result.current.updateDrag(new Vector3(0, 0, 1))
     })
     
-    let moveExecuted: boolean
+    let moveExecuted: boolean = false
     act(() => {
       moveExecuted = result.current.endDrag() || false
     })
     
     expect(result.current.isDragging).toBe(false)
     expect(result.current.draggedPiece).toBeNull()
+    expect(moveExecuted).toBe(false)
   })
 
   it('should end drag without executing invalid moves', () => {
@@ -133,7 +134,7 @@ describe('usePieceMovement', () => {
       result.current.updateDrag(new Vector3(3, 0, 3))
     })
     
-    let moveExecuted: boolean
+    let moveExecuted: boolean = false
     act(() => {
       moveExecuted = result.current.endDrag() || false
     })

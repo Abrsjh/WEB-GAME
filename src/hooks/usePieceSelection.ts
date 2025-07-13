@@ -31,7 +31,7 @@ export function usePieceSelection() {
 
   const canSelectPiece = useCallback((square: Square) => {
     const piece = game.get(square)
-    return piece !== null && piece.color === currentPlayer
+    return piece !== null && piece !== undefined && piece.color === currentPlayer
   }, [game, currentPlayer])
 
   const handleSquareClick = useCallback((square: Square) => {

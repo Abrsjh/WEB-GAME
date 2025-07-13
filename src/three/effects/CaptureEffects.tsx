@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { useSpring, animated, config } from '@react-spring/three'
+import { Vector3 } from 'three'
 import type { Square, PieceSymbol, Color } from 'chess.js'
 import { squareTo3DPosition } from '../../utils/chessHelpers'
 import { ChessPiece } from '../pieces/ChessPiece'
@@ -148,7 +149,7 @@ export function ExplosionEffect({ position, onComplete }: ExplosionEffectProps) 
 
   return (
     <group>
-      {particles.map((particle, index) => (
+      {particles.map((_, index) => (
         <animated.mesh
           key={index}
           position={(springs.particles as any)[index]?.position || [position.x, position.y, position.z]}

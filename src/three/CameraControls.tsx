@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react'
 import { useFrame } from '@react-three/fiber'
-import { OrbitControls as OrbitControlsImpl } from 'three/addons/controls/OrbitControls.js'
 import { OrbitControls } from '@react-three/drei'
 import { Vector3 } from 'three'
 
@@ -15,7 +14,7 @@ export function EnhancedCameraControls({
   autoRotateSpeed = 0.5,
   enableKeyboardControls = true
 }: EnhancedCameraControlsProps) {
-  const controlsRef = useRef<OrbitControlsImpl>(null)
+  const controlsRef = useRef<any>(null)
   const [cameraPreset, setCameraPreset] = useState<'default' | 'white' | 'black' | 'top'>('default')
 
   const presetPositions = {

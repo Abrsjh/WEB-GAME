@@ -74,8 +74,8 @@ export function HoverAnimation({
 
   return (
     <animated.group
-      scale={springs.scale}
-      position={springs.position}
+      scale={springs.scale as any}
+      position={springs.position as any}
     >
       {children}
     </animated.group>
